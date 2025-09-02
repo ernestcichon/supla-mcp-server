@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "supla-server": {
+      "command": "node",
+      "args": [
+        "src/index.js"
+      ],
+      "env": {},
+      "cwd": "C:/supla-mcp-server",
+      "description": "Serwer MCP dla integracji z systemem Supla smart home"
+    }
+  }
+}

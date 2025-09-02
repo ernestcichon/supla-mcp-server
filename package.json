@@ -1,0 +1,36 @@
+{
+  "name": "supla-mcp-server",
+  "version": "2.2.0",
+  "description": "MCP Server for Supla smart home integration with energy monitoring and smartphone statistics",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node tests/test-suite.js",
+    "test:energy": "node tests/test-energy-module.js",
+    "test:smartphones": "node tests/test-smartphones.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.2",
+    "axios": "^1.6.0",
+    "zod": "^3.25.76"
+  },
+  "keywords": [
+    "mcp",
+    "supla",
+    "smart-home",
+    "iot",
+    "model-context-protocol",
+    "energy-monitoring",
+    "electricity-meter"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/supla-mcp-server.git"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
