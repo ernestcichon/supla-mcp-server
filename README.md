@@ -12,10 +12,13 @@ C:\Users\admin\Desktop\ERGO energia\51 - SOFTWARE HOUSE\1 - SUPLA-MPC-SERVER
 ```
 
 ### 🔧 Ostatnie aktualizacje (19.09.2025):
+- ✅ **v2.3.0** - Refaktoryzacja kodu i poprawa struktury
 - ✅ Naprawiono konfigurację Claude Desktop po przeniesieniu projektu
 - ✅ Zaktualizowano ścieżki w konfiguracji MCP
 - ✅ Utworzono skrypty startowe dla łatwego uruchamiania
 - ✅ Dodano backup konfiguracji
+- ✅ Poprawiono komentarze i dokumentację kodu
+- ✅ Usunięto niepotrzebne pliki i duplikaty
 
 ## 🚀 Szybkie uruchomienie
 
@@ -210,6 +213,13 @@ npm test
 ```
 
 ## 📈 Historia wersji
+
+### v2.3.0 - Refaktoryzacja kodu (19.09.2025)
+- ✅ Poprawiono strukturę i organizację kodu
+- ✅ Dodano szczegółową dokumentację JSDoc
+- ✅ Usunięto niepotrzebne pliki i duplikaty
+- ✅ Poprawiono komentarze i nazwy zmiennych
+- ✅ Zaktualizowano wersję do 2.3.0
 
 ### v2.2.0 - Nowy system konfiguracji (13.08.2025)
 - ✅ Bezpieczne zarządzanie tokenami

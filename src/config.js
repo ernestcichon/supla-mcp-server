@@ -1,5 +1,8 @@
-// Konfiguracja serwera MCP dla Supla
-// Zmien te wartosci wedlug potrzeb
+/**
+ * Konfiguracja serwera MCP dla Supla
+ * @version 2.3.0
+ * @author ERGO energia
+ */
 
 export const config = {
     // Domyślny URL serwera Supla (może być nadpisany przez set_config)
@@ -13,7 +16,7 @@ export const config = {
     // Konfiguracja serwera MCP
     MCP_SERVER: {
         name: 'supla-server',
-        version: '2.2.0'
+        version: '2.3.0'
     },
     
     // Ustawienia logowania
@@ -23,13 +26,13 @@ export const config = {
         format: 'text' // 'text', 'json'
     },
     
-    // Timeout dla zapytan API (w milisekundach)
+    // Timeout dla zapytań API (w milisekundach)
     API_TIMEOUT: 10000,
     
-    // Maksymalna liczba prob ponowienia zapytania
+    // Maksymalna liczba prób ponowienia zapytania
     MAX_RETRIES: 3,
     
-    // Interwal miedzy probami ponowienia (w milisekundach)
+    // Interwał między próbami ponowienia (w milisekundach)
     RETRY_DELAY: 1000,
     
     // Ustawienia API
@@ -45,7 +48,11 @@ export const config = {
     }
 };
 
-// Funkcja do walidacji konfiguracji
+/**
+ * Waliduje konfigurację serwera
+ * @returns {boolean} True jeśli konfiguracja jest prawidłowa
+ * @throws {Error} Jeśli konfiguracja jest nieprawidłowa
+ */
 export function validateConfig() {
     const errors = [];
     
@@ -59,13 +66,15 @@ export function validateConfig() {
     // }
     
     if (errors.length > 0) {
-        throw new Error(`Bledy konfiguracji:\n${errors.join('\n')}`);
+        throw new Error(`Błędy konfiguracji:\n${errors.join('\n')}`);
     }
     
     return true;
 }
 
-// Funkcja do wyswietlania konfiguracji (bez tokenu)
+/**
+ * Wyświetla konfigurację serwera (bez pełnego tokenu)
+ */
 export function displayConfig() {
     const displayConfig = {
         ...config,
@@ -74,7 +83,7 @@ export function displayConfig() {
             'BRAK (ustaw przez set_config)'
     };
     
-    // Uzywaj stderr zamiast stdout, aby nie psuc komunikacji MCP
+    // Używaj stderr zamiast stdout, aby nie psuć komunikacji MCP
     console.error('=== KONFIGURACJA SERWERA MCP SUPLA ===');
     console.error(JSON.stringify(displayConfig, null, 2));
     console.error('========================================');

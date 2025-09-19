@@ -1,9 +1,20 @@
+/**
+ * Klient API dla systemu Supla
+ * @version 2.3.0
+ * @author ERGO energia
+ */
+
 import axios from 'axios';
 import { config } from './config.js';
 import { logger } from './utils/logger.js';
 import { getCurrentConfig } from './tools/config.js';
 
 export class SuplaClient {
+    /**
+     * Tworzy nowy klient Supla
+     * @param {string|null} serverUrl URL serwera Supla
+     * @param {string|null} accessToken Token dostępu
+     */
     constructor(serverUrl = null, accessToken = null) {
         // Użyj podanych parametrów lub pobierz z aktualnej konfiguracji
         const currentConfig = getCurrentConfig();
@@ -15,7 +26,16 @@ export class SuplaClient {
             throw new Error('Brak tokenu dostępu. Ustaw konfigurację najpierw używając set_config.');
         }
         
-        this.api = axios.create({
+        this.api = this.createApiClient();
+        logger.info('SuplaClient utworzony', { serverUrl: this.serverUrl });
+    }
+
+    /**
+     * Tworzy instancję axios z konfiguracją
+     * @returns {AxiosInstance} Skonfigurowana instancja axios
+     */
+    createApiClient() {
+        return axios.create({
             baseURL: this.serverUrl,
             headers: {
                 'Authorization': `Bearer ${this.accessToken}`,
@@ -23,11 +43,13 @@ export class SuplaClient {
             },
             timeout: config.API_TIMEOUT
         });
-        
-        logger.info('SuplaClient utworzony', { serverUrl: this.serverUrl });
     }
 
-    // Metoda do aktualizacji konfiguracji w czasie działania
+    /**
+     * Aktualizuje konfigurację klienta w czasie działania
+     * @param {string|null} newServerUrl Nowy URL serwera
+     * @param {string|null} newAccessToken Nowy token dostępu
+     */
     updateConfig(newServerUrl = null, newAccessToken = null) {
         if (newServerUrl) {
             this.serverUrl = newServerUrl;
@@ -36,16 +58,8 @@ export class SuplaClient {
             this.accessToken = newAccessToken;
         }
         
-        // Aktualizuj axios instance
-        this.api = axios.create({
-            baseURL: this.serverUrl,
-            headers: {
-                'Authorization': `Bearer ${this.accessToken}`,
-                'Content-Type': 'application/json'
-            },
-            timeout: config.API_TIMEOUT
-        });
-        
+        // Aktualizuj instancję axios
+        this.api = this.createApiClient();
         logger.info('Konfiguracja SuplaClient zaktualizowana', { serverUrl: this.serverUrl });
     }
 
