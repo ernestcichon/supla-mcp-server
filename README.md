@@ -6,6 +6,17 @@ Serwer MCP (Model Context Protocol) dla integracji z systemem Supla smart home.
 
 Serwer jest w pełni skonfigurowany i działa z Claude Desktop.
 
+### 📍 Aktualna lokalizacja:
+```
+C:\Users\admin\Desktop\ERGO energia\51 - SOFTWARE HOUSE\1 - SUPLA-MPC-SERVER
+```
+
+### 🔧 Ostatnie aktualizacje (19.09.2025):
+- ✅ Naprawiono konfigurację Claude Desktop po przeniesieniu projektu
+- ✅ Zaktualizowano ścieżki w konfiguracji MCP
+- ✅ Utworzono skrypty startowe dla łatwego uruchamiania
+- ✅ Dodano backup konfiguracji
+
 ## 🚀 Szybkie uruchomienie
 
 ### 1. Uruchom serwer MCP
@@ -86,13 +97,16 @@ Plik konfiguracyjny: `C:\Users\admin\AppData\Roaming\Claude\claude_desktop_confi
   "mcpServers": {
     "supla-server": {
       "command": "node",
-      "args": ["C:/supla-mcp-server/src/index.js"],
+      "args": ["C:\\Users\\admin\\Desktop\\ERGO energia\\51 - SOFTWARE HOUSE\\1 - SUPLA-MPC-SERVER\\src\\index.js"],
       "env": {},
       "description": "Serwer MCP dla integracji z systemem Supla smart home"
     }
   }
 }
 ```
+
+### 🔄 Backup konfiguracji
+W przypadku problemów z konfiguracją, skopiuj zawartość z pliku `claude-config-backup.json` do pliku konfiguracyjnego Claude Desktop.
 
 ### Nowy system konfiguracji (v2.2.0+)
 
@@ -163,7 +177,10 @@ supla-mcp-server/
 │   ├── test-energy-module.js # Test modułu energii
 │   └── test-smartphones.js   # Test funkcjonalności smartfonów
 ├── backup/                   # Backup projektu
-├── start.bat                 # Skrypt uruchamiania
+├── start.bat                 # Oryginalny skrypt uruchamiania
+├── start-server.bat          # Uruchamia serwer MCP w trybie interaktywnym
+├── start-mcp-background.bat  # Uruchamia serwer MCP w tle (dla Claude Desktop)
+├── claude-config-backup.json # Backup konfiguracji Claude Desktop
 ├── package.json              # Zależności
 ├── README.md                 # Dokumentacja
 ├── CONFIGURATION-GUIDE.md    # NOWE: Przewodnik konfiguracji

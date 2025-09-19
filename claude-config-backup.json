@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "supla-server": {
+      "command": "node",
+      "args": [
+        "C:\\Users\\admin\\Desktop\\ERGO energia\\51 - SOFTWARE HOUSE\\1 - SUPLA-MPC-SERVER\\src\\index.js"
+      ],
+      "env": {},
+      "description": "Serwer MCP dla integracji z systemem Supla smart home"
+    }
+  }
+}
